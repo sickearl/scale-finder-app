@@ -3,12 +3,12 @@ import React, { useState, useMemo, useEffect } from "react";
 const NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 // Low E to high e, top to bottom (as seen looking down at the neck while playing)
-const TUNING = [
+const TUNING = [          
   { name: "E", idx: 4 },
-  { name: "A", idx: 9 },
-  { name: "D", idx: 2 },
-  { name: "G", idx: 7 },
   { name: "B", idx: 11 },
+  { name: "G", idx: 7 },
+  { name: "D", idx: 2 },
+  { name: "A", idx: 9 },
   { name: "E", idx: 4 },
 ];
 
