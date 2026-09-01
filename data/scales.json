@@ -1,0 +1,414 @@
+[
+  {
+    "id": "major",
+    "label": "Maggiore (Ionica)",
+    "intervals": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "minor",
+    "label": "Minore naturale (Eolia)",
+    "intervals": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "4",
+      "5",
+      "b6",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "harmonic-minor",
+    "label": "Minore armonica",
+    "intervals": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      11
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "4",
+      "5",
+      "b6",
+      "7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "melodic-minor",
+    "label": "Minore melodica",
+    "intervals": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "major-pent",
+    "label": "Pentatonica maggiore",
+    "intervals": [
+      0,
+      2,
+      4,
+      7,
+      9
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "3",
+      "5",
+      "6"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "minor-pent",
+    "label": "Pentatonica minore",
+    "intervals": [
+      0,
+      3,
+      5,
+      7,
+      10
+    ],
+    "degrees": [
+      "1",
+      "b3",
+      "4",
+      "5",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "blues",
+    "label": "Blues",
+    "intervals": [
+      0,
+      3,
+      5,
+      6,
+      7,
+      10
+    ],
+    "degrees": [
+      "1",
+      "b3",
+      "4",
+      "b5",
+      "5",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "dorian",
+    "label": "Dorica",
+    "intervals": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "4",
+      "5",
+      "6",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "phrygian",
+    "label": "Frigia",
+    "intervals": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10
+    ],
+    "degrees": [
+      "1",
+      "b2",
+      "b3",
+      "4",
+      "5",
+      "b6",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "lydian",
+    "label": "Lidia",
+    "intervals": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      11
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "3",
+      "#4",
+      "5",
+      "6",
+      "7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "mixolydian",
+    "label": "Misolidia",
+    "intervals": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "locrian",
+    "label": "Locria",
+    "intervals": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10
+    ],
+    "degrees": [
+      "1",
+      "b2",
+      "b3",
+      "4",
+      "b5",
+      "b6",
+      "b7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "chromatic",
+    "label": "Cromatica",
+    "intervals": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "degrees": [
+      "1",
+      "b2",
+      "2",
+      "b3",
+      "3",
+      "4",
+      "b5",
+      "5",
+      "b6",
+      "6",
+      "b7",
+      "7"
+    ],
+    "group": "occidentale",
+    "builtin": true
+  },
+  {
+    "id": "in",
+    "label": "In (Miyako-bushi)",
+    "intervals": [
+      0,
+      1,
+      5,
+      7,
+      8
+    ],
+    "degrees": [
+      "1",
+      "b2",
+      "4",
+      "5",
+      "b6"
+    ],
+    "group": "giapponese",
+    "builtin": true
+  },
+  {
+    "id": "yo",
+    "label": "Yo",
+    "intervals": [
+      0,
+      2,
+      5,
+      7,
+      9
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "4",
+      "5",
+      "6"
+    ],
+    "group": "giapponese",
+    "builtin": true
+  },
+  {
+    "id": "hirajoshi",
+    "label": "Hirajoshi",
+    "intervals": [
+      0,
+      2,
+      3,
+      7,
+      8
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "5",
+      "b6"
+    ],
+    "group": "giapponese",
+    "builtin": true
+  },
+  {
+    "id": "kumoi",
+    "label": "Kumoijoshi",
+    "intervals": [
+      0,
+      2,
+      3,
+      7,
+      9
+    ],
+    "degrees": [
+      "1",
+      "2",
+      "b3",
+      "5",
+      "6"
+    ],
+    "group": "giapponese",
+    "builtin": true
+  },
+  {
+    "id": "iwato",
+    "label": "Iwato",
+    "intervals": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ],
+    "degrees": [
+      "1",
+      "b2",
+      "4",
+      "b5",
+      "b7"
+    ],
+    "group": "giapponese",
+    "builtin": true
+  }
+]
