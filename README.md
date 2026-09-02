@@ -46,6 +46,25 @@ Nel file `data/scales.json`, dentro questa stessa cartella — non solo quelle c
 
 Il file viene creato automaticamente al primo avvio, precompilato con tutte le scale di base. Da quel momento è tuo: puoi aprirlo con un editor di testo, modificarlo, cancellare scale che non usi (anche quelle predefinite, con la × accanto al nome nell'app) o farne una copia di backup — basta che resti un array JSON valido. Se lo cancelli del tutto, al riavvio successivo verrà ricreato con l'elenco di base.
 
+## Versione desktop (Electron)
+
+Oltre che nel browser, l'app gira come applicazione desktop nativa, con le stesse identiche funzionalità: il server Express parte dentro l'app e i dati restano in un file locale.
+
+Comandi (dopo l'installazione con `install.ps1` / `install.sh`):
+
+| Comando | Cosa fa |
+|---|---|
+| `npm run electron:dev` | Sviluppo: finestra Electron collegata al dev server Vite (hot reload) |
+| `npm run app` | Build + avvio della versione desktop in locale |
+| `npm run dist` | Genera i pacchetti Windows in `release/`: `Scale Finder 1.0.0.exe` (portabile) e `Scale Finder Setup 1.0.0.exe` (installer) |
+
+### Dove sono i dati nella versione desktop
+
+- **Exe portabile**: in una cartella `data/` accanto al file `.exe` — i dati viaggiano insieme all'app, che puoi copiare dove vuoi.
+- **Installer**: stesso criterio; se installi in una cartella non scrivibile (es. Program Files), i dati finiscono in `%APPDATA%\Scale Finder\data`.
+
+Nota: l'eseguibile non è firmato digitalmente, quindi alla prima esecuzione Windows SmartScreen può mostrare un avviso: clicca "Ulteriori informazioni" → "Esegui comunque".
+
 ## Build per un uso "solo consultazione" (opzionale)
 
 Se vuoi generare una versione ottimizzata dei soli file frontend (comunque richiede il server avviato per il salvataggio):

@@ -12,8 +12,13 @@ scale-finder-app/
 │   ├── main.jsx           bootstrap React
 │   └── App.jsx            intero frontend (un solo componente)
 ├── server/
-│   ├── index.js           server Express (porta 4001)
+│   ├── index.js           server Express: startServer() esportabile + entry CLI (porta 4001)
 │   └── defaultScales.js   dati di seed (scale predefinite)
+├── electron/
+│   └── main.js            processo main Electron (finestra + server interno)
+├── build/
+│   └── icon.ico           icona app (placeholder generato, sostituibile)
+├── electron-builder.yml   configurazione packaging (portable + NSIS → release/)
 ├── data/
 │   └── scales.json        creato/letto/scritto a runtime, non versionare
 ├── install.sh / install.ps1
@@ -104,6 +109,40 @@ Funzioni chiave:
 ## Build
 
 `npm run build` produce un bundle statico in `dist/` con Vite, ma **il salvataggio delle scale richiede comunque il server Express attivo** (serve per leggere/scrivere `data/scales.json`): non è un'app puramente statica. `npm run preview` serve la build ma non avvia il backend — va lanciato separatamente con `npm run server` se si vuole testare anche il salvataggio.
+
+## Modalità desktop (Electron)
+
+Nessuna modifica al frontend né al protocollo HTTP: il processo main di Electron (`electron/main.js`):
+
+1. risolve il percorso del file dati con `resolveDataFile()`:
+   - dev: `<progetto>/data/scales.json`;
+   - pacchettizzato: `<dir exe>/data/scales.json` — per l'exe portabile vale
+     `PORTABLE_EXECUTABLE_DIR` (il launcher si estrae in una cartella temporanea e
+     `process.execPath` punta lì, quindi **non** usare `execPath` per i dati);
+   - se la cartella non è scrivibile (es. Program Files): fallback su `%APPDATA%/Scale Finder/data`;
+2. avvia `startServer({ port: 0, dataFile, staticDir: <dist>/ })` importato da `server/index.js`
+   (porta `0` = prima libera → nessun conflitto se la webapp di dev è già su sulla 4001);
+3. apre una `BrowserWindow` su `http://localhost:<porta>`: i `fetch("/api/scales")` relativi
+   del frontend funzionano perché è Express stesso a servire `dist/` oltre alle API.
+
+Dettagli:
+
+- **`server/index.js`**: `startServer(options)` è l'API riusabile (opzioni `port`, `dataFile`,
+  `staticDir`). Il blocco in fondo rileva l'esecuzione diretta (`node server/index.js`) e mantiene
+  il comportamento CLI originale. Con `staticDir` impostato Express serve i file statici e fa da
+  fallback SPA su tutto ciò che non è `/api/*` (il percorso deve essere assoluto: `path.resolve`).
+- **Single instance lock**: `app.requestSingleInstanceLock()` — un secondo avvio riporta in primo
+  piano la finestra esistente ed esce; elimina il rischio "ultima scrittura vince" tra istanze
+  (resta valido per due tab del browser in modalità web).
+- **Smoke test**: `npm run smoke` (`electron . --smoke-test`) avvia l'app, attende il caricamento
+  della finestra, chiude ed esce con code 0; funziona anche sull'exe portabile.
+- **Sviluppo**: `npm run electron:dev` imposta `SF_DEV_URL=http://localhost:5173` → la finestra
+  carica Vite (HMR) e il proxy `/api` di `vite.config.js`, senza avviare un server interno.
+- **Packaging**: `electron-builder.yml`, target `portable` + `nsis` (x64) in `release/`.
+  `express` e `cors` devono restare in `dependencies` (electron-builder include nell'asar solo le
+  production dependencies). Progetto `"type": "module"` → anche il main è ESM (Electron 28+).
+- **Icona**: `build/icon.ico` (256px, placeholder con nota musicale) — per sostituirla basta
+  rimpiazzare il file, la config la rileva automaticamente.
 
 ## Limiti noti
 
