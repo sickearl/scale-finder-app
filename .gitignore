@@ -1,3 +1,5 @@
 node_modules/
 dist/
 release/
+/.opencode/package-lock.json
+/.opencode/package.json
